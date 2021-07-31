@@ -53,6 +53,7 @@ namespace TheHeist
                 bankLevel += luckValue;
                 // Displaying team's skill level and bank's level
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("-----Your Team Info-----");
                 var teamSkill = 0;
                 foreach (var member in team)
@@ -60,14 +61,16 @@ namespace TheHeist
                     member.DisplayMemberInfo();
                     teamSkill += member.SkillLevel;
                 }
+                
                 Console.WriteLine("------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Your team's current combined skill level is {teamSkill}");
                 Console.WriteLine($"The bank's difficulty level is {bankLevel}");
 
                 // Comparing your team's level against bank's level
                 if (bankLevel <= teamSkill)
                 {
-                    Console.WriteLine("Congratulations! You successfully stole all the money from bank.");
+                    Console.WriteLine("Congratulations! You successfully took all the money from bank.");
                     successfulRuns += 1;
                 }
                 else
@@ -77,6 +80,8 @@ namespace TheHeist
                 }
                 i++;
             }
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"You succeeded {successfulRuns} times and failed {failedRuns} times");
         }
     }
